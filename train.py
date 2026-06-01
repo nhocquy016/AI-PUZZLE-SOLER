@@ -1,7 +1,7 @@
+# Author: Do Duy Duc - Training script
 """
 train.py
 ========
-Author: Do Duy Duc - Training script
 Vòng lặp huấn luyện chính:
 
   1. Tạo tập bài toán huấn luyện
