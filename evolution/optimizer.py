@@ -1,4 +1,4 @@
-"""
+# Author: Do Duy Duc - Genetic Algorithm & Differential Evolution f"""
 evolution/optimizer.py
 ======================
 Tối ưu trọng số Neural Network bằng thuật toán tiến hóa.

@@ -1,4 +1,4 @@
-"""
+# Author: Do Duy Duc - Training script f"""
 train.py
 ========
 Vòng lặp huấn luyện chính:
