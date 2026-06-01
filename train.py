@@ -1,6 +1,7 @@
 """
 train.py
 ========
+Author: Do Duy Duc
 Vòng lặp huấn luyện chính:
 
   1. Tạo tập bài toán huấn luyện
