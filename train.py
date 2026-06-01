@@ -1,4 +1,4 @@
-# Author: Do Duy Duc - Training script
+# Author: Do Duy Duc - Training script.
 """
 train.py
 ========
