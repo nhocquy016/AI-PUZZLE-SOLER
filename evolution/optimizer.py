@@ -1,4 +1,3 @@
-# Author: Do Duy Duc - Genetic Algorithm & Differential Evolution f
 """
 evolution/optimizer.py
 ======================
