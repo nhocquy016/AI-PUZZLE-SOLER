@@ -2,16 +2,6 @@
 api/main.py
 ===========
 FastAPI backend cho AI Puzzle Solver.
-
-Cài đặt:
-  pip install fastapi uvicorn numpy
-
-Chạy:
-  uvicorn api.main:app --reload --port 8000
-
-Endpoints:
-  POST /solve   – giải puzzle với cả 2 heuristic, trả về so sánh
-  GET  /random  – tạo puzzle ngẫu nhiên
 """
 
 import sys, os
@@ -43,15 +33,22 @@ _nn_cache = {}
 def get_nn(size: int) -> Optional[NNHeuristic]:
     if size not in _nn_cache:
         nn = NNHeuristic(size=size, hidden_sizes=[128, 64])
+        
+        # Đồng bộ tên file trọng số chính xác với file bạn đã train ra
         weight_path = f"best_weights_size{size}.npy"
+        
+        # Nếu không tìm thấy ở thư mục gốc, kiểm tra thêm trong thư mục api/
+        if not os.path.exists(weight_path):
+            weight_path = os.path.join("api", f"best_weights_size{size}.npy")
+
         if os.path.exists(weight_path):
             nn.load(weight_path)
             _nn_cache[size] = nn
-            print(f"  ✓ Loaded NN weights: {weight_path}")
+            print(f"  ✓ Loaded NN weights thành công từ: {weight_path}")
         else:
-            # dùng trọng số random nếu chưa train
+            # Dùng trọng số ngẫu nhiên nếu không tìm thấy file
             _nn_cache[size] = nn
-            print(f"  ⚠ Không tìm thấy {weight_path}, dùng NN chưa train")
+            print(f"  ⚠ Không tìm thấy {weight_path}, AI sẽ dùng trọng số chưa train")
     return _nn_cache[size]
 
 
